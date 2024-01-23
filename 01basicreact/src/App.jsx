@@ -7,8 +7,12 @@ function App() {
     <>
       <h1>Chai Aur React</h1>
       <h2>Counter: {counter}</h2>
-      <button onClick={() => setCounter(counter + 1)}>Add Value</button>
-      <button onClick={() => setCounter(counter - 1)}>
+
+      <button onClick={() => setCounter((prevCounter) => prevCounter + 1)}>
+        {" "}
+        // prevCounter gives the prev state of the variable Add Value
+      </button>
+      <button onClick={() => setCounter((prevCounter) => prevCounter - 1)}>
         Decrease Value Value
       </button>
     </>
