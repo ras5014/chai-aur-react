@@ -35,6 +35,37 @@ function App() {
           Copy
         </button>
       </div>
+      <div className="flex text-sm gap-x-2">
+        <div className="flex items-center gap-x-1">
+          <input
+            type="range"
+            min={6}
+            max={100}
+            value={length}
+            className="cursor-pointer"
+            onChange={(e) => setLength(e.target.value)}
+          />
+          <label>Length: {length}</label>
+        </div>
+        <div className="flex items-center gap-x-1">
+          <input
+            type="checkbox"
+            defaultChecked={numAllowed}
+            id="num input"
+            onChange={() => setNumAllowed((prev) => !prev)}
+          />
+          <label htmlFor="num input">Numbers</label>
+        </div>
+        <div className="flex items-center gap-x-1">
+          <input
+            type="checkbox"
+            defaultChecked={charAllowed}
+            id="char input"
+            onChange={() => setCharAllowed((prev) => !prev)}
+          />
+          <label htmlFor="char input">Characters</label>
+        </div>
+      </div>
     </div>
   );
 }
