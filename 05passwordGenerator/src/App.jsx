@@ -1,5 +1,4 @@
-import "./App.css";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 function App() {
   const [length, setLength] = useState(8);
@@ -7,6 +6,7 @@ function App() {
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
 
+  // useCallback stores the result in cache to optimize performance
   const passwordGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -20,6 +20,10 @@ function App() {
     }
     setPassword(pass);
   }, [length, numAllowed, charAllowed, setPassword]);
+
+  useEffect(() => {
+    passwordGenerator();
+  }, [length, numAllowed, charAllowed, passwordGenerator]);
   return (
     <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
       <h1 className="text-white text-center my-3">Password Generator</h1>
