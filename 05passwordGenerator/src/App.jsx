@@ -31,6 +31,7 @@ function App() {
   }, [password]);
 
   // useEffect is run @1st render and when the dependency array changes (in this case)
+  //
   useEffect(() => {
     passwordGenerator();
   }, [length, numAllowed, charAllowed, passwordGenerator]);
